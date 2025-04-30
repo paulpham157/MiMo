@@ -57,7 +57,7 @@ We believe this report along with the models will provides valuable insights to 
     - We implement a data re-sampling strategy for easy problems to enhance rollout sampling efficiency and stabilize policy updates, particularly in the later phases of RL training.
 
 - **RL Infrastructures**
-    - We develop a Seamless Rollout Engine to accelerate RL training and validation. Our design integrates continuous rollout, asynchronous reward computation, and early termination to minimize GPU idle time, achieving 2.29$\times$ faster training and 1.96$\times$ faster validation.
+    - We develop a Seamless Rollout Engine to accelerate RL training and validation. Our design integrates continuous rollout, asynchronous reward computation, and early termination to minimize GPU idle time, achieving $2.29\times$ faster training and $1.96\times$ faster validation.
     - We support MTP in vLLM and enhance the robustness of the inference engine in RL system.
 
 
