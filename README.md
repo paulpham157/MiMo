@@ -63,7 +63,7 @@ We believe this report along with the models will provides valuable insights to 
 
 ## II. Model Details
 
-> Models are avaliable at [https://huggingface.co/XiaomiMiMo](https://huggingface.co/XiaomiMiMo)
+> Models are available at [https://huggingface.co/XiaomiMiMo](https://huggingface.co/XiaomiMiMo)
 
 |    **Model**    |                                **Description**                                |                                   **Download**                                    |
 | :-------------: | :---------------------------------------------------------------------------: | :-------------------------------------------------------------------------------: |
