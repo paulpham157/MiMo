@@ -29,7 +29,7 @@
 
 <br/>
 
-> This code repository is licensed under the [Apache2.0 License](https://github.com/XiaomiMiMo/MiMo/blob/main/LICENSE).
+> This code repository is licensed under the [Apache 2.0 License](https://github.com/XiaomiMiMo/MiMo/blob/main/LICENSE).
 
 ## I. Introduction
 
@@ -42,12 +42,12 @@ In this work, we present MiMo-7B, a series of models trained from scratch and bo
 </p>
 
 We open-source MiMo-7B series, including checkpoints of the base model, SFT model, RL model trained from base model, and RL model trained from the SFT model.
-We believe this report along with the models will provides valuable insights to develop powerful reasoning LLM that benefit the larger community.
+We believe this report along with the models will provide valuable insights to develop powerful reasoning LLM that benefit the larger community.
 
 ### 🌟 Highlights
 
 - **Pre-Training: Base Model Born for Reasoning**
-  - We optimize data preprocessing pipeline, enhancing text extraction toolkits and applying multi-dimensional data filtering to increase reasoning pattern density in pre-training data. We also employ multiple strategies to generate massive diverse synthetic reasoning data.
+  - We optimize the data preprocessing pipeline, enhancing text extraction toolkits and applying multi-dimensional data filtering to increase reasoning pattern density in pre-training data. We also employ multiple strategies to generate massive diverse synthetic reasoning data.
   - We adopt a three-stage data mixture strategy for pre-training. Overall, MiMo-7B-Base is pre-trained on approximately 25 trillion tokens.
   - We incorporate Multiple-Token Prediction as an additional training objective, which enhances model performance and accelerates inference.
 
@@ -60,10 +60,9 @@ We believe this report along with the models will provides valuable insights to 
     - We develop a Seamless Rollout Engine to accelerate RL training and validation. Our design integrates continuous rollout, asynchronous reward computation, and early termination to minimize GPU idle time, achieving $2.29\times$ faster training and $1.96\times$ faster validation.
     - We support MTP in vLLM and enhance the robustness of the inference engine in RL system.
 
-
 ## II. Model Details
 
-> Models are avaliable at [https://huggingface.co/XiaomiMiMo](https://huggingface.co/XiaomiMiMo)
+> Models are available at [https://huggingface.co/XiaomiMiMo](https://huggingface.co/XiaomiMiMo)
 
 |    **Model**    |                                **Description**                                |                                   **Download**                                    |
 | :-------------: | :---------------------------------------------------------------------------: | :-------------------------------------------------------------------------------: |
@@ -103,15 +102,31 @@ MiMo-7B series
 | LiveCodeBench v6<br/>(Pass@1) |     29.1     |      42.9       |    45.5     |    49.3    |
 
 > [!IMPORTANT]
-> The evaluation are conducted with `temperature=0.6`.
+> The evaluations are conducted with `temperature=0.6`.
 > 
 > AIME24 and AIME25 are with averaged score of 32 repetitions. LiveCodeBench v5 (20240801-20250201), LiveCodeBench v6 (20250201-20250501), GPQA-Diamond and IF-Eval are with averaged score of 8 repetitions. MATH500 and SuperGPQA are with a single run.
 
 ## IV. Deployment
 
+### SGLang Inference
+
+Thanks to the [contribution](https://github.com/sgl-project/sglang/pull/5921) from the SGLang team, we supported MiMo in SGLang mainstream within 24h with MTP coming soon.
+
+Example Script
+
+```bash
+# Install the latest SGlang from main branch
+python3 -m uv pip install "sglang[all] @ git+https://github.com/sgl-project/sglang.git/@main#egg=sglang&subdirectory=python"
+
+# Launch SGLang Server
+
+python3 -m sglang.launch_server --model-path XiaomiMiMo/MiMo-7B-RL --host 0.0.0.0 --trust-remote-code
+```
+Detailed usage can be found in [SGLang documents](https://docs.sglang.ai/backend/send_request.html). MTP will also be supported in 24h.
+
 ### vLLM inference
 
-1. [Recommended] We official support inference with MiMo-MTP using [our fork of vLLM](https://github.com/XiaomiMiMo/vllm/tree/feat_mimo_mtp).
+1. [Recommended] We officially support inference with MiMo-MTP using [our fork of vLLM](https://github.com/XiaomiMiMo/vllm/tree/feat_mimo_mtp).
 
 Example script
 
