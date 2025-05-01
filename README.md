@@ -22,6 +22,8 @@
   |
   <a href="https://huggingface.co/XiaomiMiMo" target="_blank">🤗 HuggingFace</a>
   &nbsp;|
+  <a href="https://www.modelscope.cn/organization/XiaomiMiMo" target="_blank">🤖️ ModelScope</a>
+  &nbsp;|
   <a href="https://github.com/XiaomiMiMo/MiMo/blob/main/MiMo-7B-Technical-Report.pdf" target="_blank">📔 Technical Report</a>
   &nbsp;|
   <br/>
@@ -42,7 +44,7 @@ In this work, we present MiMo-7B, a series of models trained from scratch and bo
 </p>
 
 We open-source MiMo-7B series, including checkpoints of the base model, SFT model, RL model trained from base model, and RL model trained from the SFT model.
-We believe this report along with the models will provide valuable insights to develop powerful reasoning LLM that benefit the larger community.
+We believe this report along with the models will provide valuable insights to develop powerful reasoning LLMs that benefit the larger community.
 
 ### 🌟 Highlights
 
@@ -56,20 +58,26 @@ We believe this report along with the models will provide valuable insights to d
     - To mitigate the sparse reward issue for challenging code problems, we introduce a test difficulty driven code reward. By assigning fine-grained scores for test cases with varying difficulty levels, the policy can be more effectively optimized via dense reward signal.
     - We implement a data re-sampling strategy for easy problems to enhance rollout sampling efficiency and stabilize policy updates, particularly in the later phases of RL training.
 
-- **RL Infrastructures**
+- **RL Infrastructure**
     - We develop a Seamless Rollout Engine to accelerate RL training and validation. Our design integrates continuous rollout, asynchronous reward computation, and early termination to minimize GPU idle time, achieving $2.29\times$ faster training and $1.96\times$ faster validation.
-    - We support MTP in vLLM and enhance the robustness of the inference engine in RL system.
+    - We support MTP in vLLM and enhance the robustness of the inference engine in the RL system.
 
 ## II. Model Details
 
-> Models are available at [https://huggingface.co/XiaomiMiMo](https://huggingface.co/XiaomiMiMo)
+The MTP layers of MiMo-7B is tuned during pretraining and SFT and freezed during RL. With one MTP layer for speculative decoding, the acceptance rate is about 90%.
 
-|    **Model**    |                                **Description**                                |                                   **Download**                                    |
-| :-------------: | :---------------------------------------------------------------------------: | :-------------------------------------------------------------------------------: |
-|  MiMo-7B-Base   |               Base model with extraordinary reasoning potential               |    [🤗 XiaomiMiMo/MiMo-7B-Base](https://huggingface.co/XiaomiMiMo/MiMo-7B-Base)    |
-| MiMo-7B-RL-Zero |                       RL model trained from base model                        | [🤗 XiaomiMiMo/MiMo-7B-RL-Zero](https://huggingface.co/XiaomiMiMo/MiMo-7B-RL-Zero) |
-|   MiMo-7B-SFT   |                       SFT model trained from base model                       |     [🤗 XiaomiMiMo/MiMo-7B-SFT](https://huggingface.co/XiaomiMiMo/MiMo-7B-SFT)     |
-|   MiMo-7B-RL    | RL model trained from SFT model, superior performance matching OpenAI o1-mini |      [🤗 XiaomiMiMo/MiMo-7B-RL](https://huggingface.co/XiaomiMiMo/MiMo-7B-RL)      |
+<p align="center">
+  <img width="80%" src="https://github.com/XiaomiMiMo/MiMo/raw/main/figures/architecture.png?raw=true">
+</p>
+
+> Models are available at [https://huggingface.co/XiaomiMiMo](https://huggingface.co/XiaomiMiMo) and [https://www.modelscope.cn/organization/XiaomiMiMo](https://www.modelscope.cn/organization/XiaomiMiMo)
+
+|    **Model**    |                                **Description**                                |                            **Download (HuggingFace)**                             |                                  **Download (ModelScope)**                                  |
+| :-------------: | :---------------------------------------------------------------------------: | :-------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------: |
+|  MiMo-7B-Base   |               Base model with extraordinary reasoning potential               |    [🤗 XiaomiMiMo/MiMo-7B-Base](https://huggingface.co/XiaomiMiMo/MiMo-7B-Base)    |    [🤖️ XiaomiMiMo/MiMo-7B-Base](https://www.modelscope.cn/models/XiaomiMiMo/MiMo-7B-Base)    |
+| MiMo-7B-RL-Zero |                       RL model trained from base model                        | [🤗 XiaomiMiMo/MiMo-7B-RL-Zero](https://huggingface.co/XiaomiMiMo/MiMo-7B-RL-Zero) | [🤖️ XiaomiMiMo/MiMo-7B-RL-Zero](https://www.modelscope.cn/models/XiaomiMiMo/MiMo-7B-RL-Zero) |
+|   MiMo-7B-SFT   |                       SFT model trained from base model                       |     [🤗 XiaomiMiMo/MiMo-7B-SFT](https://huggingface.co/XiaomiMiMo/MiMo-7B-SFT)     |     [🤖️ XiaomiMiMo/MiMo-7B-SFT](https://www.modelscope.cn/models/XiaomiMiMo/MiMo-7B-SFT)     |
+|   MiMo-7B-RL    | RL model trained from SFT model, superior performance matching OpenAI o1-mini |      [🤗 XiaomiMiMo/MiMo-7B-RL](https://huggingface.co/XiaomiMiMo/MiMo-7B-RL)      |      [🤖️ XiaomiMiMo/MiMo-7B-RL](https://www.modelscope.cn/models/XiaomiMiMo/MiMo-7B-RL)      |
 
 ## III. Evaluation Results
 
@@ -119,9 +127,9 @@ Example Script
 python3 -m uv pip install "sglang[all] @ git+https://github.com/sgl-project/sglang.git/@main#egg=sglang&subdirectory=python"
 
 # Launch SGLang Server
-
 python3 -m sglang.launch_server --model-path XiaomiMiMo/MiMo-7B-RL --host 0.0.0.0 --trust-remote-code
 ```
+
 Detailed usage can be found in [SGLang documents](https://docs.sglang.ai/backend/send_request.html). MTP will also be supported in 24h.
 
 ### vLLM inference
