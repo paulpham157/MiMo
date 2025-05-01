@@ -56,10 +56,9 @@ We believe this report along with the models will provide valuable insights to d
     - To mitigate the sparse reward issue for challenging code problems, we introduce a test difficulty driven code reward. By assigning fine-grained scores for test cases with varying difficulty levels, the policy can be more effectively optimized via dense reward signal.
     - We implement a data re-sampling strategy for easy problems to enhance rollout sampling efficiency and stabilize policy updates, particularly in the later phases of RL training.
 
-- **RL Infrastructure**
-    - We develop a Seamless Rollout Engine to accelerate RL training and validation. Our design integrates continuous rollout, asynchronous reward computation, and early termination to minimize GPU idle time, achieving 2.29$\times$ faster training and 1.96$\times$ faster validation.
-    - We support MTP in vLLM and enhance the robustness of the inference engine in the RL system.
-
+- **RL Infrastructures**
+    - We develop a Seamless Rollout Engine to accelerate RL training and validation. Our design integrates continuous rollout, asynchronous reward computation, and early termination to minimize GPU idle time, achieving $2.29\times$ faster training and $1.96\times$ faster validation.
+    - We support MTP in vLLM and enhance the robustness of the inference engine in RL system.
 
 ## II. Model Details
 
