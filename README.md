@@ -191,9 +191,9 @@ Example script
 ```py
 from transformers import AutoModel, AutoModelForCausalLM, AutoTokenizer
 
-model_path = "/path/to/MiMo"
-model = AutoModelForCausalLM.from_pretrained(model_path, trust_remote_code=True)
-tokenizer = AutoTokenizer.from_pretrained(model_path)
+model_id = "XiaomiMiMo/MiMo-7B-RL"
+model = AutoModelForCausalLM.from_pretrained(model_id, trust_remote_code=True)
+tokenizer = AutoTokenizer.from_pretrained(model_id)
 inputs = tokenizer(["Today is"], return_tensors='pt')
 output = model.generate(**inputs, max_new_tokens = 100)
 print(tokenizer.decode(output.tolist()[0]))
