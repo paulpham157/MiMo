@@ -134,7 +134,7 @@ Detailed usage can be found in [SGLang documents](https://docs.sglang.ai/backend
 
 ### vLLM inference
 
-1. [Recommended] We officially support inference with MiMo-MTP using [our fork of vLLM](https://github.com/XiaomiMiMo/vllm/tree/feat_mimo_mtp).
+1. [Recommended] We officially support inference with MiMo-MTP using [our fork of vLLM](https://github.com/XiaomiMiMo/vllm/tree/feat_mimo_mtp_stable_073).
 
 Example script
 
@@ -209,7 +209,7 @@ print(tokenizer.decode(output.tolist()[0]))
 
 ### Recommended environment and prompts
 
-- We recommend using [our fork of vLLM](https://github.com/XiaomiMiMo/vllm/tree/feat_mimo_mtp) which is developed based on vLLM 0.7.3.
+- We recommend using [our fork of vLLM](https://github.com/XiaomiMiMo/vllm/tree/feat_mimo_mtp_stable_073) which is developed based on vLLM 0.7.3.
 - We recommend using empty system prompt.
 
 > We haven't verified MiMo with other inference engines and welcome contributions based on the model definition in the Huggingface repo 💻.
