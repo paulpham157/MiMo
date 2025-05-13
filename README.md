@@ -24,7 +24,7 @@
   &nbsp;|
   <a href="https://www.modelscope.cn/organization/XiaomiMiMo" target="_blank">🤖️ ModelScope</a>
   &nbsp;|
-  <a href="https://github.com/XiaomiMiMo/MiMo/blob/main/MiMo-7B-Technical-Report.pdf" target="_blank">📔 Technical Report</a>
+  <a href="https://arxiv.org/abs/2505.07608" target="_blank">📔 Technical Report</a>
   &nbsp;|
   <br/>
 </div>
@@ -217,12 +217,14 @@ print(tokenizer.decode(output.tolist()[0]))
 ## V. Citation
 
 ```bibtex
-@misc{xiaomi2025mimo,
-      title={MiMo: Unlocking the Reasoning Potential of Language Model – From Pretraining to Posttraining}, 
+@misc{coreteam2025mimounlockingreasoningpotential,
+      title={MiMo: Unlocking the Reasoning Potential of Language Model -- From Pretraining to Posttraining}, 
       author={{Xiaomi LLM-Core Team}},
       year={2025},
+      eprint={2505.07608},
+      archivePrefix={arXiv},
       primaryClass={cs.CL},
-      url={https://github.com/XiaomiMiMo/MiMo}, 
+      url={https://arxiv.org/abs/2505.07608}, 
 }
 ```
 
