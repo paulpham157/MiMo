@@ -31,7 +31,37 @@
 
 <br/>
 
-> This code repository is licensed under the [Apache 2.0 License](https://github.com/XiaomiMiMo/MiMo/blob/main/LICENSE).
+## Updates
+
+[2025.05.30] During the RL training, by continuously expanding the training window size (from 32K to 48K), the performance of MiMo-7B-RL-0530 on AIME24 can be continuously improved and eventually surpass that of DeepSeek R1 (79.8).
+
+<table>
+  <thead>
+    <tr>
+      <th>Benchmark</th>
+      <th>MiMo-7B-RL</th>
+      <th>MiMo-7B-RL-0530</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="3"><strong>Mathematics</strong></td>
+      <p align="center">
+        <td rowspan="11"><img width="80%" src="https://github.com/XiaomiMiMo/MiMo-test/raw/main/figures/length.jpg?raw=true"></td>
+      </p>
+    </tr>
+    <tr><td>MATH500<br/>(Pass@1)</td><td>95.8</td><td>97.2</td></tr>
+    <tr><td>AIME 2024<br/>(Pass@1)</td><td>68.2</td><td>80.1</td></tr>
+    <tr><td>AIME 2025<br/>(Pass@1)</td><td>55.4</td><td>70.2</td></tr>
+    <tr><td colspan="3"><strong>Code</strong></td></tr>
+    <tr><td>LiveCodeBench v5<br/>(Pass@1)</td><td>57.8</td><td>60.9</td></tr>
+    <tr><td>LiveCodeBench v6<br/>(Pass@1)</td><td>49.3</td><td>52.2</td></tr>
+    <tr><td colspan="3"><strong>STEM</strong></td></tr>
+    <tr><td>GPQA-Diamond<br/>(Pass@1)</td><td>54.4</td><td>60.6</td></tr>
+    <tr><td colspan="3"><strong>General</strong></td></tr>
+    <tr><td>Alignbench1.1<br/>(Evaluated by GPT4.1)</td><td>6.9</td><td>7.4</td></tr>
+  </tbody>
+</table>
 
 ## I. Introduction
 
