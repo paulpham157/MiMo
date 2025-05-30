@@ -31,6 +31,8 @@
 
 <br/>
 
+---
+
 ## Updates
 
 [2025.05.30] During the RL training, by continuously expanding the training window size (from 32K to 48K), the performance of MiMo-7B-RL-0530 on AIME24 can be continuously improved and eventually surpass that of DeepSeek R1 (79.8).
@@ -47,7 +49,7 @@
     <tr>
       <td colspan="3"><strong>Mathematics</strong></td>
       <p align="center">
-        <td rowspan="11"><img width="80%" src="https://github.com/XiaomiMiMo/MiMo-test/raw/main/figures/length.jpg?raw=true"></td>
+        <td rowspan="11"><img width="80%" src="https://github.com/XiaomiMiMo/MiMo/raw/main/figures/length.jpg?raw=true"></td>
       </p>
     </tr>
     <tr><td>MATH500<br/>(Pass@1)</td><td>95.8</td><td>97.2</td></tr>
@@ -62,6 +64,8 @@
     <tr><td>Alignbench1.1<br/>(Evaluated by GPT4.1)</td><td>6.9</td><td>7.4</td></tr>
   </tbody>
 </table>
+
+---
 
 ## I. Introduction
 
