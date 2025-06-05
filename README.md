@@ -35,7 +35,7 @@
 
 ## Updates
 
-[2025.05.30] During the RL training, by continuously expanding the training window size (from 32K to 48K), the performance of MiMo-7B-RL-0530 on AIME24 can be continuously improved and eventually surpass that of DeepSeek R1 (79.8).
+[2025.05.30] We scaled the SFT dataset from approximately 500K to 6M instances and continuously expanding the RL training window size from 32K to 48K, the performance of [MiMo-7B-RL-0530](https://huggingface.co/XiaomiMiMo/MiMo-7B-RL-0530) on AIME24 can be continuously improved and eventually surpass that of DeepSeek R1 (79.8).
 
 <table>
   <thead>
@@ -161,10 +161,10 @@ Example Script
 python3 -m uv pip install "sglang[all] @ git+https://github.com/sgl-project/sglang.git/@main#egg=sglang&subdirectory=python"
 
 # Launch SGLang Server
-python3 -m sglang.launch_server --model-path XiaomiMiMo/MiMo-7B-RL --host 0.0.0.0 --trust-remote-code
+python3 -m sglang.launch_server --model-path XiaomiMiMo/MiMo-7B-RL-0530 --host 0.0.0.0 --trust-remote-code
 
 # Launch MTP Server
-python3 -m sglang.launch_server --model-path XiaomiMiMo/MiMo-7B-RL --trust-remote-code \
+python3 -m sglang.launch_server --model-path XiaomiMiMo/MiMo-7B-RL-0530 --trust-remote-code \
 --speculative-algorithm EAGLE --speculative-num-steps 1 --speculative-eagle-topk 1 \
 --speculative-num-draft-tokens 2  --mem-fraction 0.5
 ```
@@ -238,7 +238,7 @@ Example script
 ```py
 from transformers import AutoModel, AutoModelForCausalLM, AutoTokenizer
 
-model_id = "XiaomiMiMo/MiMo-7B-RL"
+model_id = "XiaomiMiMo/MiMo-7B-RL-0530"
 model = AutoModelForCausalLM.from_pretrained(model_id, trust_remote_code=True)
 tokenizer = AutoTokenizer.from_pretrained(model_id)
 inputs = tokenizer(["Today is"], return_tensors='pt')
@@ -258,7 +258,7 @@ print(tokenizer.decode(output.tolist()[0]))
 ```bibtex
 @misc{coreteam2025mimounlockingreasoningpotential,
       title={MiMo: Unlocking the Reasoning Potential of Language Model -- From Pretraining to Posttraining}, 
-      author={{Xiaomi LLM-Core Team}},
+      author={LLM-Core-Team Xiaomi},
       year={2025},
       eprint={2505.07608},
       archivePrefix={arXiv},
